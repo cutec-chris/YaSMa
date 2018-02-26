@@ -1,0 +1,6 @@
+[submodule "source/components/sqlitevirtualtables"]
+	path = source/components/sqlitevirtualtables
+	url = https://github.com/cutec-chris/SQLiteVirtualTables.git
+[submodule "source/components/sqlitefilesystemtable"]
+	path = source/components/sqlitefilesystemtable
+	url = https://github.com/cutec-chris/SQLiteFilesystemTable.git
