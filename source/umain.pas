@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ExtCtrls, ActnList;
+  ExtCtrls, ActnList, uYaSMadblayer;
 
 type
 
@@ -14,19 +14,21 @@ type
 
   TfMain = class(TForm)
     acNewTab: TAction;
+    acConnect: TAction;
     ActionList1: TActionList;
     pcPages: TPageControl;
     Splitter1: TSplitter;
     ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
     TreeView1: TTreeView;
     procedure acNewTabExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-
-private
+  private
     { private declarations }
   public
     { public declarations }
+    DBLayer : TMinimalDBLayer;
   end;
 
 var
@@ -42,6 +44,7 @@ uses usqleditor;
 
 procedure TfMain.FormCreate(Sender: TObject);
 begin
+  DBLayer := TYaSMaDBLayer.Create(Self);
 end;
 
 procedure TfMain.FormShow(Sender: TObject);
@@ -58,6 +61,7 @@ begin
   aTab := pcPages.AddTabSheet;
   aTab.Caption:='Abfrage';
   aEditor := TfSQLEditor.Create(aTab);
+  aEditor.DBLayer := DBLayer;
   aEditor.Parent := aTab;
   aEditor.Visible:=True;
   aEditor.Align:=alClient;

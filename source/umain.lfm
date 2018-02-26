@@ -38,11 +38,18 @@ object fMain: TfMain
     Left = 0
     Top = 0
     Width = 874
+    ButtonHeight = 32
+    ButtonWidth = 32
     Caption = 'ToolBar1'
     EdgeBorders = []
     EdgeInner = esNone
     EdgeOuter = esNone
     TabOrder = 3
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 0
+      Action = acConnect
+    end
   end
   object ActionList1: TActionList
     left = 24
@@ -50,6 +57,9 @@ object fMain: TfMain
     object acNewTab: TAction
       Caption = 'neues Tab'
       OnExecute = acNewTabExecute
+    end
+    object acConnect: TAction
+      Caption = 'acConnect'
     end
   end
 end

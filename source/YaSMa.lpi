@@ -44,7 +44,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="YaSMa.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -61,8 +61,14 @@
         <Filename Value="usqleditor.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fSQLEditor"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="uyasmadblayer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uYaSMadblayer"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
