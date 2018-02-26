@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, uMain, sqlitevirtualtables, sqlitefilesystemtable
+  Forms, uMain, sqlitevirtualtables, sqlitefilesystemtable,
+  usqleditor
   { you can add units after this };
 
 {$R *.res}

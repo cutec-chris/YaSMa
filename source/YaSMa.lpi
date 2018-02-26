@@ -28,20 +28,23 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="4">
       <Item1>
-        <PackageName Value="sqlitefilesystemtable"/>
-        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
+        <PackageName Value="SynEdit"/>
       </Item1>
       <Item2>
-        <PackageName Value="sqlitevirtualtables"/>
-        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
+        <PackageName Value="sqlitefilesystemtable"/>
+        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
       </Item2>
       <Item3>
-        <PackageName Value="LCL"/>
+        <PackageName Value="sqlitevirtualtables"/>
+        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
       </Item3>
+      <Item4>
+        <PackageName Value="LCL"/>
+      </Item4>
     </RequiredPackages>
-    <Units Count="2">
+    <Units Count="3">
       <Unit0>
         <Filename Value="YaSMa.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -50,9 +53,16 @@
         <Filename Value="umain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="fMain"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uMain"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="usqleditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fSQLEditor"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
