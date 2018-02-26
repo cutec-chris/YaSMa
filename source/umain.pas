@@ -36,15 +36,22 @@ var
 
 implementation
 
-uses usqleditor;
+uses usqleditor,usqlite3virtualTable,uSqlite3EventTables,uSqlite3VTFilesystem;
 
 {$R *.lfm}
 
 { TfMain }
 
 procedure TfMain.FormCreate(Sender: TObject);
+var
+  Table: TSQLiteVirtualTable;
 begin
   DBLayer := TYaSMaDBLayer.Create(Self);
+  DBLayer.Active:=True;
+  Table := TEventTable.Create(DBLayer);
+  Table.RegisterToSQLite(TYaSMaDBLayer(DBLayer).MainConnection.Handle);
+  Table := TFSTable.Create(DBLayer);
+  Table.RegisterToSQLite(TYaSMaDBLayer(DBLayer).MainConnection.Handle);
 end;
 
 procedure TfMain.FormShow(Sender: TObject);

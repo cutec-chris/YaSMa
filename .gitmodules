@@ -4,3 +4,6 @@
 [submodule "source/components/sqlitefilesystemtable"]
 	path = source/components/sqlitefilesystemtable
 	url = https://github.com/cutec-chris/SQLiteFilesystemTable.git
+[submodule "source/components/sqliteeventtable"]
+	path = source/components/sqliteeventtable
+	url = https://github.com/cutec-chris/SQLiteEventLogTable.git

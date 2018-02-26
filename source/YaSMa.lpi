@@ -9,7 +9,6 @@
       <Title Value="YaSMa"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
-      <Icon Value="0"/>
     </General>
     <i18n>
       <EnableI18N LFM="False"/>
@@ -28,23 +27,27 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="4">
+    <RequiredPackages Count="5">
       <Item1>
-        <PackageName Value="SynEdit"/>
+        <PackageName Value="sqliteeventtable"/>
+        <DefaultFilename Value="components\sqliteeventtable\sqliteeventtable.lpk"/>
       </Item1>
       <Item2>
-        <PackageName Value="sqlitefilesystemtable"/>
-        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
+        <PackageName Value="SynEdit"/>
       </Item2>
       <Item3>
-        <PackageName Value="sqlitevirtualtables"/>
-        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
+        <PackageName Value="sqlitefilesystemtable"/>
+        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
       </Item3>
       <Item4>
-        <PackageName Value="LCL"/>
+        <PackageName Value="sqlitevirtualtables"/>
+        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
       </Item4>
+      <Item5>
+        <PackageName Value="LCL"/>
+      </Item5>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="YaSMa.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -69,6 +72,10 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uYaSMadblayer"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="components\sqliteeventtable\windows_cursorvars.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
