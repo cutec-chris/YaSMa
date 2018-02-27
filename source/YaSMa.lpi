@@ -27,25 +27,28 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="5">
+    <RequiredPackages Count="6">
       <Item1>
-        <PackageName Value="sqliteeventtable"/>
-        <DefaultFilename Value="components\sqliteeventtable\sqliteeventtable.lpk"/>
+        <PackageName Value="FCL"/>
       </Item1>
       <Item2>
-        <PackageName Value="SynEdit"/>
+        <PackageName Value="sqliteeventtable"/>
+        <DefaultFilename Value="components\sqliteeventtable\sqliteeventtable.lpk"/>
       </Item2>
       <Item3>
-        <PackageName Value="sqlitefilesystemtable"/>
-        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
+        <PackageName Value="SynEdit"/>
       </Item3>
       <Item4>
-        <PackageName Value="sqlitevirtualtables"/>
-        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
+        <PackageName Value="sqlitefilesystemtable"/>
+        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
       </Item4>
       <Item5>
-        <PackageName Value="LCL"/>
+        <PackageName Value="sqlitevirtualtables"/>
+        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
       </Item5>
+      <Item6>
+        <PackageName Value="LCL"/>
+      </Item6>
     </RequiredPackages>
     <Units Count="5">
       <Unit0>

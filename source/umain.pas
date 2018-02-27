@@ -16,6 +16,7 @@ type
     acNewTab: TAction;
     acConnect: TAction;
     ActionList1: TActionList;
+    ImageList1: TImageList;
     pcPages: TPageControl;
     Splitter1: TSplitter;
     ToolBar1: TToolBar;
