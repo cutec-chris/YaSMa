@@ -7,6 +7,7 @@ object fSQLEditor: TfSQLEditor
   Caption = 'fSQLEditor'
   ClientHeight = 572
   ClientWidth = 815
+  OnCreate = FormCreate
   LCLVersion = '1.4.4.0'
   object pcPages: TPageControl
     Left = 0
@@ -21,7 +22,7 @@ object fSQLEditor: TfSQLEditor
       Caption = 'SQL'
       ClientHeight = 518
       ClientWidth = 807
-      inline SynEdit1: TSynEdit
+      inline mEdit: TSynEdit
         Left = 0
         Height = 495
         Top = 0
@@ -465,7 +466,7 @@ object fSQLEditor: TfSQLEditor
         MouseTextActions = <>
         MouseSelActions = <>
         Lines.Strings = (
-          'SynEdit1'
+          'select * from Internal.FileSystem'
         )
         VisibleSpecialChars = [vscSpace, vscTabAtLast]
         SelectedColor.BackPriority = 50

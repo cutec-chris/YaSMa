@@ -27,15 +27,28 @@ type
     constructor Create(ADataSet: TMDBLayerRecord);
   end;
 
+  { TMDBLayerTransaction }
+
+  TMDBLayerTransaction = class(TComponent)
+  private
+    FTransaction: TComponent;
+  protected
+    property Transaction : TComponent read FTransaction;
+  public
+  end;
+
   { TMDBLayerRecord }
 
   TMDBLayerRecord = class(TPersistent)
   private
     FDataSet: TDataSet;
     FFieldDefs: TMDBLFieldDefs;
+    FTransaction: TMDBLayerTransaction;
+    procedure SetTranscation(AValue: TMDBLayerTransaction);virtual;
   public
     property DataSet : TDataSet read FDataSet;
     property FieldDefs : TMDBLFieldDefs read FFieldDefs;
+    property Transaction : TMDBLayerTransaction read FTransaction write SetTranscation;
   end;
 
   { TMinimalDBLayer }
@@ -47,12 +60,23 @@ type
   public
     property Active : Boolean read GetActive write SetActive;
     function GetRecord : TMDBLayerRecord;virtual;abstract;
+    function GetTransaction : TMDBLayerTransaction;virtual;abstract;
   end;
 
+  { TYaSMaDBRecord }
+
+  { TYaSMaDBTransaction }
+
+  TYaSMaDBTransaction = class(TMDBLayerTransaction)
+  public
+    constructor Create(AOwner: TComponent); override;
+  end;
 
   { TYaSMaDBRecord }
 
   TYaSMaDBRecord = class(TMDBLayerRecord)
+  private
+    procedure SetTranscation(AValue: TMDBLayerTransaction); override;
   public
     constructor Create(Connection : TComponent);
   end;
@@ -76,9 +100,31 @@ type
 
 implementation
 
+{ TYaSMaDBTransaction }
+
+constructor TYaSMaDBTransaction.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  FTransaction := TSQLTransaction.Create(AOwner);
+end;
+
+{ TMDBLayerRecord }
+
+procedure TMDBLayerRecord.SetTranscation(AValue: TMDBLayerTransaction);
+begin
+  if FTransaction=AValue then Exit;
+  FTransaction:=AValue;
+end;
+
 { TYaSMaDBRecord }
 
-constructor TYaSMaDBRecord.Create(Connection : TComponent);
+procedure TYaSMaDBRecord.SetTranscation(AValue: TMDBLayerTransaction);
+begin
+  inherited SetTranscation(AValue);
+  TSQLQuery(FDataSet).Transaction := TSQLTransaction(AValue.Transaction);
+end;
+
+constructor TYaSMaDBRecord.Create(Connection: TComponent);
 begin
   FDataSet := TSQLQuery.Create(Connection);
   TSQLQuery(FDataSet).DataBase:= TDatabase(Connection);
