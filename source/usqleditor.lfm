@@ -84,6 +84,7 @@ object fSQLEditor: TfSQLEditor
       DataSource = DataSource1
       TabOrder = 1
       TitleStyle = tsNative
+      OnDrawColumnCell = DBGrid1DrawColumnCell
     end
   end
   inline mEdit: TSynEdit

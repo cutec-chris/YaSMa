@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, SynEdit, SynHighlighterSQL, Forms, Controls,
   Graphics, Dialogs, ComCtrls, DBGrids, DbCtrls, ActnList, ExtCtrls,
-  uYaSMadblayer, db;
+  uYaSMadblayer, db, Grids;
 
 type
 
@@ -28,10 +28,11 @@ type
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     procedure acExecuteExecute(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure FormCreate(Sender: TObject);
   private
     FDBLyer: TMinimalDBLayer;
-    Transaction: TMDBLayerTransaction;
     Query: TMDBLayerRecord;
     procedure SetDBLayer(AValue: TMinimalDBLayer);
     { private declarations }
@@ -51,9 +52,53 @@ begin
 end;
 
 procedure TfSQLEditor.acExecuteExecute(Sender: TObject);
+var
+  aSQL: TStringList;
 begin
-  Query.SQL.Assign(mEdit.Lines);
+  Query.Close;
+  aSQL := TStringList.Create;
+  aSQL.Assign(mEdit.Lines);
+  aSQL.Text := StringReplace(aSQL.Text,'Internal.','internal_',[rfReplaceAll,rfIgnoreCase]);
+  Query.SQL.Assign(aSQL);
+  aSQL.Free;
   Query.Open;
+end;
+
+procedure TfSQLEditor.DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+var
+  Bmp: TBitmap;
+  OutRect: TRect;
+begin
+  if not Column.Field.IsBlob then
+    exit
+  else
+  begin
+    with DBGrid1 do
+      begin
+        // clear area
+        Canvas.FillRect (Rect);
+        // copy the rectangle
+        OutRect := Rect;
+        // output field data
+        if Column.Field is TGraphicField then
+        begin
+          Bmp := TBitmap.Create;
+          try
+            Bmp.Assign (Column.Field);
+            Canvas.StretchDraw (OutRect, Bmp);
+          finally
+            Bmp.Free;
+          end;
+        end
+        else if Column.Field is TMemoField then
+        begin
+          Canvas.TextOut(Outrect.Left,OutRect.Top,copy(Column.Field.AsString,0,100));
+        end
+        else // draw single line vertically centered
+          Canvas.TextOut(Outrect.Left,OutRect.Top,copy(Column.Field.AsString,0,100));
+      end;
+  end;
 end;
 
 procedure TfSQLEditor.SetDBLayer(AValue: TMinimalDBLayer);
@@ -61,8 +106,6 @@ begin
   if FDBLyer=AValue then Exit;
   FDBLyer:=AValue;
   Query := DBLayer.GetRecord;
-  Transaction := DBLayer.GetTransaction(Query.Connection);
-  Query.Transaction := Transaction;
   DataSource1.DataSet := Query.DataSet;
 end;
 

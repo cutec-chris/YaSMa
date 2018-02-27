@@ -122,6 +122,7 @@ type
   private
     FSettingsFile: string;
     FMainConnection: TSQLite3Connection;
+    FMainTransaction : TSQLTransaction;
     procedure SetSettingsFile(AValue: string);
   protected
     function GetActive: Boolean;override;
@@ -283,6 +284,8 @@ end;
 constructor TYaSMaDBLayer.Create(AOwner: TComponent);
 begin
   FMainConnection := TSQLite3Connection.Create(Self);
+  FMainTransaction := TSQLTransaction.Create(Self);
+  FMainConnection.Transaction := FMainTransaction;
   SettingsFile := ':memory:';
 end;
 
@@ -295,7 +298,8 @@ begin
       else raise Exception.Create('not implemented !');
     end
   else
-    Result := TYaSMaDBRecord.Create(aConnection)
+    Result := TYaSMaDBRecord.Create(aConnection);
+  TSQLQuery(TYaSMaDBRecord(Result).DataSet).Transaction := TSQLTransaction(FMainTransaction);
 end;
 
 function TYaSMaDBLayer.GetTransaction(aConnection: TComponent

@@ -51,8 +51,10 @@ begin
   DBLayer.Active:=True;
   Table := TEventTable.Create(DBLayer);
   Table.RegisterToSQLite(TYaSMaDBLayer(DBLayer).MainConnection.Handle);
+  TYaSMaDBLayer(DBLayer).MainConnection.ExecuteDirect('CREATE VIRTUAL TABLE temp.internal_event USING event');
   Table := TFSTable.Create(DBLayer);
   Table.RegisterToSQLite(TYaSMaDBLayer(DBLayer).MainConnection.Handle);
+  TYaSMaDBLayer(DBLayer).MainConnection.ExecuteDirect('CREATE VIRTUAL TABLE temp.internal_filesystem USING filesystem');
 end;
 
 procedure TfMain.FormShow(Sender: TObject);
