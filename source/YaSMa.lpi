@@ -25,30 +25,34 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="6">
+    <RequiredPackages Count="7">
       <Item1>
-        <PackageName Value="FCL"/>
+        <PackageName Value="avamm_dblayer_zeos"/>
+        <DefaultFilename Value="components\dblayer\dblayer_zeos\avamm_dblayer_zeos.lpk"/>
       </Item1>
       <Item2>
-        <PackageName Value="sqliteeventtable"/>
-        <DefaultFilename Value="components\sqliteeventtable\sqliteeventtable.lpk"/>
+        <PackageName Value="FCL"/>
       </Item2>
       <Item3>
-        <PackageName Value="SynEdit"/>
+        <PackageName Value="sqliteeventtable"/>
+        <DefaultFilename Value="components\sqliteeventtable\sqliteeventtable.lpk"/>
       </Item3>
       <Item4>
-        <PackageName Value="sqlitefilesystemtable"/>
-        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
+        <PackageName Value="SynEdit"/>
       </Item4>
       <Item5>
-        <PackageName Value="sqlitevirtualtables"/>
-        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
+        <PackageName Value="sqlitefilesystemtable"/>
+        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
       </Item5>
       <Item6>
-        <PackageName Value="LCL"/>
+        <PackageName Value="sqlitevirtualtables"/>
+        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
       </Item6>
+      <Item7>
+        <PackageName Value="LCL"/>
+      </Item7>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="3">
       <Unit0>
         <Filename Value="YaSMa.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -68,15 +72,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit2>
-      <Unit3>
-        <Filename Value="uyasmadblayer.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="uYaSMadblayer"/>
-      </Unit3>
-      <Unit4>
-        <Filename Value="components\sqliteeventtable\windows_cursorvars.inc"/>
-        <IsPartOfProject Value="True"/>
-      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

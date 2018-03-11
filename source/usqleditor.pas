@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, SynEdit, SynHighlighterSQL, Forms, Controls,
   Graphics, Dialogs, ComCtrls, DBGrids, DbCtrls, ActnList, ExtCtrls,
-  uYaSMadblayer, db, Grids;
+  uAbstractDBLayer, db, Grids;
 
 type
 
@@ -32,13 +32,13 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure FormCreate(Sender: TObject);
   private
-    FDBLyer: TMinimalDBLayer;
-    Query: TMDBLayerRecord;
-    procedure SetDBLayer(AValue: TMinimalDBLayer);
+    FDBLyer: TAbstractDBModule;
+    Query: TAbstractDBQuery;
+    procedure SetDBLayer(AValue: TAbstractDBModule);
     { private declarations }
   public
     { public declarations }
-    property DBLayer : TMinimalDBLayer read FDBLyer write SetDBLayer;
+    property DBLayer : TAbstractDBModule read FDBLyer write SetDBLayer;
   end;
 
 implementation
@@ -59,7 +59,7 @@ begin
   aSQL := TStringList.Create;
   aSQL.Assign(mEdit.Lines);
   aSQL.Text := StringReplace(aSQL.Text,'Internal.','internal_',[rfReplaceAll,rfIgnoreCase]);
-  Query.SQL.Assign(aSQL);
+  Query.SQL := aSQL.Text;
   aSQL.Free;
   Query.Open;
 end;
@@ -101,12 +101,12 @@ begin
   end;
 end;
 
-procedure TfSQLEditor.SetDBLayer(AValue: TMinimalDBLayer);
+procedure TfSQLEditor.SetDBLayer(AValue: TAbstractDBModule);
 begin
   if FDBLyer=AValue then Exit;
   FDBLyer:=AValue;
-  Query := DBLayer.GetRecord;
-  DataSource1.DataSet := Query.DataSet;
+  Query := TAbstractDBQuery(DBLayer.GetNewDataSet(''));
+  DataSource1.DataSet := Query;
 end;
 
 end.

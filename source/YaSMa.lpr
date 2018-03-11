@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, uMain, sqlitevirtualtables, sqlitefilesystemtable,
-  usqleditor, uYaSMadblayer, sqliteeventtable
+  usqleditor, sqliteeventtable, avamm_dblayer_zeos
   { you can add units after this };
 
 {$R *.res}

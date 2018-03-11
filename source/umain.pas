@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ExtCtrls, ActnList, uYaSMadblayer;
+  ExtCtrls, ActnList, uAbstractDBLayer;
 
 type
 
@@ -29,7 +29,7 @@ type
     { private declarations }
   public
     { public declarations }
-    DBLayer : TMinimalDBLayer;
+    DBLayer : TAbstractDBModule;
   end;
 
 var
@@ -47,14 +47,14 @@ procedure TfMain.FormCreate(Sender: TObject);
 var
   Table: TSQLiteVirtualTable;
 begin
-  DBLayer := TYaSMaDBLayer.Create(Self);
-  DBLayer.Active:=True;
+  DBLayer := TAbstractDBModule.Create(Self);
+  DBLayer.SetProperties('sqlite-3;;memory:;');
   Table := TEventTable.Create(DBLayer);
-  Table.RegisterToSQLite(TYaSMaDBLayer(DBLayer).MainConnection.Handle);
-  TYaSMaDBLayer(DBLayer).MainConnection.ExecuteDirect('CREATE VIRTUAL TABLE temp.internal_event USING event');
+  Table.RegisterToSQLite(DBLayer.MainConnection.Handle);
+  DBLayer.ExecuteDirect('CREATE VIRTUAL TABLE temp.internal_event USING event');
   Table := TFSTable.Create(DBLayer);
-  Table.RegisterToSQLite(TYaSMaDBLayer(DBLayer).MainConnection.Handle);
-  TYaSMaDBLayer(DBLayer).MainConnection.ExecuteDirect('CREATE VIRTUAL TABLE temp.internal_filesystem USING filesystem');
+  Table.RegisterToSQLite(DBLayer.MainConnection.Handle);
+  DBLayer.ExecuteDirect('CREATE VIRTUAL TABLE temp.internal_filesystem USING filesystem');
 end;
 
 procedure TfMain.FormShow(Sender: TObject);

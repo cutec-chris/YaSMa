@@ -8,7 +8,7 @@ object fMain: TfMain
   ClientWidth = 874
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '1.4.4.0'
+  LCLVersion = '1.9.0.0'
   object pcPages: TPageControl
     Left = 289
     Height = 505
@@ -25,7 +25,6 @@ object fMain: TfMain
     Width = 272
     Align = alLeft
     BorderSpacing.Around = 4
-    DefaultItemHeight = 18
     TabOrder = 1
   end
   object Splitter1: TSplitter
@@ -903,6 +902,9 @@ object fMain: TfMain
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    BitmapAdv = {
+      4C6900000000
     }
   end
 end
