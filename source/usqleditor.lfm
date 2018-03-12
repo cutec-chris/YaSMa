@@ -42,13 +42,13 @@ object fSQLEditor: TfSQLEditor
   end
   object pBottom: TPanel
     Left = 0
-    Height = 287
-    Top = 266
+    Height = 282
+    Top = 271
     Width = 815
-    Align = alBottom
+    Align = alClient
     BevelOuter = bvNone
     Caption = 'pBottom'
-    ClientHeight = 287
+    ClientHeight = 282
     ClientWidth = 815
     TabOrder = 2
     object DBNavigator1: TDBNavigator
@@ -73,7 +73,7 @@ object fSQLEditor: TfSQLEditor
     end
     object DBGrid1: TDBGrid
       Left = 0
-      Height = 263
+      Height = 258
       Top = 24
       Width = 815
       Align = alClient
@@ -91,7 +91,7 @@ object fSQLEditor: TfSQLEditor
     Height = 240
     Top = 26
     Width = 815
-    Align = alClient
+    Align = alTop
     Font.Height = -13
     Font.Name = 'Courier New'
     Font.Pitch = fpFixed
@@ -586,6 +586,15 @@ object fSQLEditor: TfSQLEditor
         MouseActionsCollapsed = <>
       end
     end
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 266
+    Width = 815
+    Align = alTop
+    ResizeAnchor = akTop
   end
   object SynSQLSyn1: TSynSQLSyn
     DefaultFilter = 'SQL-Dateien (*.sql)|*.sql'

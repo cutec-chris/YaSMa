@@ -11,7 +11,7 @@ object fMain: TfMain
   LCLVersion = '1.9.0.0'
   object pcPages: TPageControl
     Left = 289
-    Height = 505
+    Height = 420
     Top = 36
     Width = 581
     Align = alClient
@@ -20,7 +20,7 @@ object fMain: TfMain
   end
   object TreeView1: TTreeView
     Left = 4
-    Height = 505
+    Height = 420
     Top = 36
     Width = 272
     Align = alLeft
@@ -29,7 +29,7 @@ object fMain: TfMain
   end
   object Splitter1: TSplitter
     Left = 280
-    Height = 513
+    Height = 428
     Top = 32
     Width = 5
   end
@@ -50,6 +50,28 @@ object fMain: TfMain
       Top = 0
       Action = acConnect
     end
+  end
+  object lbLog: TListBox
+    Left = 0
+    Height = 80
+    Top = 465
+    Width = 874
+    Align = alBottom
+    ItemHeight = 0
+    ScrollWidth = 872
+    TabOrder = 4
+    TopIndex = -1
+  end
+  object Splitter2: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 460
+    Width = 874
+    Align = alBottom
+    Color = cl3DDkShadow
+    ParentColor = False
+    ResizeAnchor = akBottom
   end
   object ActionList1: TActionList
     Images = ImageList1

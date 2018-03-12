@@ -52,7 +52,7 @@
         <PackageName Value="LCL"/>
       </Item7>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="YaSMa.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -72,6 +72,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="uyasmaclasses.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uYasMaClasses"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

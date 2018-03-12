@@ -22,6 +22,7 @@ type
     ImageList1: TImageList;
     mEdit: TSynEdit;
     pBottom: TPanel;
+    Splitter1: TSplitter;
     StatusBar1: TStatusBar;
     SynSQLSyn1: TSynSQLSyn;
     ToolBar1: TToolBar;
