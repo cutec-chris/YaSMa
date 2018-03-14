@@ -53,7 +53,7 @@ var
 begin
   DBLayer := TAbstractDBModule.Create(Self);
   DBLayer.OnLog:=@DBLayerLog;
-  DBLayer.SetProperties('sqlite-3;;memory:;');
+  DBLayer.SetProperties('sqlite-3;;:memory:;');
   Table := TEventTable.Create(DBLayer);
   Table.RegisterToSQLite(DBLayer.MainConnection.Handle);
   DBLayer.ExecuteDirect('CREATE VIRTUAL TABLE temp.internal_event USING event');

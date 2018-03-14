@@ -5,9 +5,10 @@ unit usqleditor;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, SynEdit, SynHighlighterSQL, Forms, Controls,
-  Graphics, Dialogs, ComCtrls, DBGrids, DbCtrls, ActnList, ExtCtrls,
-  uAbstractDBLayer, db, Grids;
+  Classes, SysUtils, FileUtil, SynEdit, SynHighlighterSQL, SynGutterBase,
+  SynGutterMarks, SynGutterLineNumber, SynGutterChanges, SynGutter,
+  SynGutterCodeFolding, Forms, Controls, Graphics, Dialogs, ComCtrls, DBGrids,
+  DbCtrls, ActnList, ExtCtrls, uAbstractDBLayer, db, Grids;
 
 type
 
@@ -107,6 +108,7 @@ begin
   if FDBLyer=AValue then Exit;
   FDBLyer:=AValue;
   Query := TAbstractDBQuery(DBLayer.GetNewDataSet(''));
+  Query.FetchRows:=20;
   DataSource1.DataSet := Query;
 end;
 
