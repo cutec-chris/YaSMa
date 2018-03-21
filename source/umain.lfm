@@ -7,16 +7,23 @@ object fMain: TfMain
   ClientHeight = 600
   ClientWidth = 800
   OnCreate = FormCreate
-  OnShow = FormShow
-  LCLVersion = '1.4.4.0'
+  LCLVersion = '1.9.0.0'
   object pcPages: TPageControl
     Left = 289
     Height = 475
     Top = 36
     Width = 507
+    ActivePage = tsNewTab
     Align = alClient
     BorderSpacing.Around = 4
+    TabIndex = 0
     TabOrder = 0
+    OnCloseTabClicked = pcPagesCloseTabClicked
+    Options = [nboKeyboardTabSwitch]
+    object tsNewTab: TTabSheet
+      Caption = '+'
+      OnShow = tsNewTabShow
+    end
   end
   object TreeView1: TTreeView
     Left = 4
@@ -25,7 +32,6 @@ object fMain: TfMain
     Width = 272
     Align = alLeft
     BorderSpacing.Around = 4
-    DefaultItemHeight = 18
     TabOrder = 1
   end
   object Splitter1: TSplitter
@@ -61,8 +67,9 @@ object fMain: TfMain
     Width = 800
     Align = alBottom
     ItemHeight = 0
-    ScrollWidth = 872
+    ScrollWidth = 798
     TabOrder = 4
+    TopIndex = -1
   end
   object Splitter2: TSplitter
     Cursor = crVSplit
@@ -926,6 +933,9 @@ object fMain: TfMain
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    BitmapAdv = {
+      4C6900000000
     }
   end
 end

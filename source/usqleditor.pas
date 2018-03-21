@@ -60,7 +60,6 @@ begin
   Query.Close;
   aSQL := TStringList.Create;
   aSQL.Assign(mEdit.Lines);
-  aSQL.Text := StringReplace(aSQL.Text,'Internal.','internal_',[rfReplaceAll,rfIgnoreCase]);
   Query.SQL := aSQL.Text;
   aSQL.Free;
   Query.Open;
