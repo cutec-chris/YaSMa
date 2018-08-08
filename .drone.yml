@@ -1,0 +1,5 @@
+pipeline:
+  build-linuix-x64:
+    image: cutec/buildhost-lazarus-x64
+    commands:
+      - lazbuild source/YaSMa.lpr
