@@ -27,8 +27,7 @@
     </RunParams>
     <RequiredPackages Count="7">
       <Item1>
-        <PackageName Value="avamm_dblayer_zeos"/>
-        <DefaultFilename Value="components\dblayer\dblayer_zeos\avamm_dblayer_zeos.lpk"/>
+        <PackageName Value="avamm_dblayer_sqldb"/>
       </Item1>
       <Item2>
         <PackageName Value="FCL"/>

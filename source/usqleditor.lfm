@@ -8,7 +8,7 @@ object fSQLEditor: TfSQLEditor
   ClientHeight = 572
   ClientWidth = 815
   OnCreate = FormCreate
-  LCLVersion = '1.9.0.0'
+  LCLVersion = '2.0.4.0'
   object ToolBar1: TToolBar
     Left = 0
     Height = 26
@@ -27,7 +27,7 @@ object fSQLEditor: TfSQLEditor
     end
     object ToolButton2: TToolButton
       Left = 24
-      Height = 22
+      Height = 8
       Top = 0
       Caption = 'ToolButton2'
       Style = tbsSeparator
@@ -1641,9 +1641,6 @@ object fSQLEditor: TfSQLEditor
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00
-    }
-    BitmapAdv = {
-      4C6900000000
     }
   end
   object DataSource1: TDataSource
