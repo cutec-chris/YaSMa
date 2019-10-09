@@ -25,6 +25,7 @@ type
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     TreeView1: TTreeView;
+    procedure acConnectExecute(Sender: TObject);
     procedure acNewTabExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure pcPagesCloseTabClicked(Sender: TObject);
@@ -97,6 +98,11 @@ begin
   aEditor.Visible:=True;
   aEditor.Align:=alClient;
   pcPages.ActivePage := aTab;
+end;
+
+procedure TfMain.acConnectExecute(Sender: TObject);
+begin
+
 end;
 
 end.
