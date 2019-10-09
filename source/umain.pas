@@ -58,7 +58,7 @@ begin
   DBLayer.OnLog:=@DBLayerLog;
   DBLayer.SetProperties('sqlite-3;;:memory:;');
   Table := TEventTable.Create(DBLayer);
-  DBLayer.ExecuteDirect('ATTACH '':memory:'' as system;');
+  DBLayer.ExecuteDirect('ATTACH '':memory:'' as system;',nil,False);
   Table.RegisterToSQLite(DBLayer.MainConnection.Handle);
   DBLayer.ExecuteDirect('CREATE VIRTUAL TABLE if not exists system.events USING event');
   Table := TFSTable.Create(DBLayer);

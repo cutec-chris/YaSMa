@@ -7,7 +7,7 @@ object fMain: TfMain
   ClientHeight = 600
   ClientWidth = 800
   OnCreate = FormCreate
-  LCLVersion = '1.4.4.0'
+  LCLVersion = '2.0.4.0'
   object pcPages: TPageControl
     Left = 289
     Height = 475
@@ -32,7 +32,6 @@ object fMain: TfMain
     Width = 272
     Align = alLeft
     BorderSpacing.Around = 4
-    DefaultItemHeight = 18
     TabOrder = 1
   end
   object Splitter1: TSplitter

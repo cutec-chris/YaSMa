@@ -20,14 +20,21 @@
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
+      <local>
+        <CommandLineParams Value="--debug-sql"/>
+      </local>
       <FormatVersion Value="2"/>
       <Modes Count="1">
-        <Mode0 Name="default"/>
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="--debug-sql"/>
+          </local>
+        </Mode0>
       </Modes>
     </RunParams>
     <RequiredPackages Count="8">
       <Item1>
-        <PackageName Value="avamm_dblayer_sqlitedb"/>
+        <PackageName Value="avamm_dblayer_sqldb"/>
       </Item1>
       <Item2>
         <PackageName Value="avammdblayer"/>
@@ -100,7 +107,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="5">
+    <Exceptions Count="6">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -116,6 +123,9 @@
       <Item5>
         <Name Value="EZDatabaseError"/>
       </Item5>
+      <Item6>
+        <Name Value="ESQLDatabaseError"/>
+      </Item6>
     </Exceptions>
   </Debugging>
 </CONFIG>
