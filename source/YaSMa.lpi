@@ -35,9 +35,11 @@
     <RequiredPackages Count="8">
       <Item1>
         <PackageName Value="avamm_dblayer_sqldb"/>
+        <DefaultFilename Value="components\dblayer\dblayer_sqldb\avamm_dblayer_sqldb.lpk"/>
       </Item1>
       <Item2>
         <PackageName Value="avammdblayer"/>
+        <DefaultFilename Value="components\dblayer\avammdblayer.lpk"/>
       </Item2>
       <Item3>
         <PackageName Value="FCL"/>
