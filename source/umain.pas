@@ -9,9 +9,6 @@ uses
   ExtCtrls, ActnList, StdCtrls, uAbstractDBLayer, uYasMaClasses, db;
 
 type
-
-  { TRfreshTreeThread }
-
   { TRefreshTreeThread }
 
   TRefreshTreeThread = class(TThread)
@@ -159,6 +156,8 @@ begin
             begin
               case FieldByName('type').AsString of
               'table':bNode.ImageIndex:=26;
+              'trigger':bNode.ImageIndex:=28;
+              'view':bNode.ImageIndex:=29;
               else
                 bNode.ImageIndex:=-1;
               end;

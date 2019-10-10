@@ -32,36 +32,39 @@
         </Mode0>
       </Modes>
     </RunParams>
-    <RequiredPackages Count="8">
+    <RequiredPackages Count="9">
       <Item1>
-        <PackageName Value="avamm_dblayer_sqldb"/>
-        <DefaultFilename Value="components\dblayer\dblayer_sqldb\avamm_dblayer_sqldb.lpk"/>
+        <PackageName Value="laz_sqldbbridge"/>
       </Item1>
       <Item2>
-        <PackageName Value="avammdblayer"/>
-        <DefaultFilename Value="components\dblayer\avammdblayer.lpk"/>
+        <PackageName Value="avamm_dblayer_sqldb"/>
+        <DefaultFilename Value="components\dblayer\dblayer_sqldb\avamm_dblayer_sqldb.lpk"/>
       </Item2>
       <Item3>
-        <PackageName Value="FCL"/>
+        <PackageName Value="avammdblayer"/>
+        <DefaultFilename Value="components\dblayer\avammdblayer.lpk"/>
       </Item3>
       <Item4>
-        <PackageName Value="sqliteeventtable"/>
-        <DefaultFilename Value="components\sqliteeventtable\sqliteeventtable.lpk"/>
+        <PackageName Value="FCL"/>
       </Item4>
       <Item5>
-        <PackageName Value="SynEdit"/>
+        <PackageName Value="sqliteeventtable"/>
+        <DefaultFilename Value="components\sqliteeventtable\sqliteeventtable.lpk"/>
       </Item5>
       <Item6>
-        <PackageName Value="sqlitefilesystemtable"/>
-        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
+        <PackageName Value="SynEdit"/>
       </Item6>
       <Item7>
-        <PackageName Value="sqlitevirtualtables"/>
-        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
+        <PackageName Value="sqlitefilesystemtable"/>
+        <DefaultFilename Value="components\sqlitefilesystemtable\sqlitefilesystemtable.lpk"/>
       </Item7>
       <Item8>
-        <PackageName Value="LCL"/>
+        <PackageName Value="sqlitevirtualtables"/>
+        <DefaultFilename Value="components\sqlitevirtualtables\sqlitevirtualtables.lpk"/>
       </Item8>
+      <Item9>
+        <PackageName Value="LCL"/>
+      </Item9>
     </RequiredPackages>
     <Units Count="4">
       <Unit0>

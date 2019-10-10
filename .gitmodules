@@ -10,3 +10,6 @@
 [submodule "source/components/dblayer"]
 	path = source/components/dblayer
 	url = https://github.com/cutec-chris/avamm-db-layer.git
+[submodule "source/components/sqldb-bridge"]
+	path = source/components/sqldb-bridge
+	url = https://github.com/cutec-chris/SQLiteSQLDB-Bridge.git
