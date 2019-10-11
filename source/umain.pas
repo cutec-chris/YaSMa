@@ -65,7 +65,8 @@ resourcestring
 
 implementation
 
-uses usqleditor,usqlite3virtualTable,uSqlite3EventTables,uSqlite3VTFilesystem;
+uses usqleditor,usqlite3virtualTable,uSqlite3EventTables,uSqlite3VTFilesystem,
+  usqldbvt;
 
 {$R *.lfm}
 
@@ -186,6 +187,10 @@ begin
   DBLayer.ExecuteDirect('CREATE VIRTUAL TABLE if not exists system.filesystem USING filesystem');
   Connections := TConnectionSettings.CreateEx(Self,DBLayer);
   Connections.Open;
+  DBLayer.ExecuteDirect('ATTACH '':memory:'' as mssql;',nil,False);
+  Table := TSQLTable.Create(DBLayer);
+  Table.RegisterToSQLite(DBLayer.MainConnection.Handle);
+  DBLayer.ExecuteDirect('CREATE VIRTUAL TABLE if not exists system.filesystem USING filesystem');
   acRefresh.Execute;
 end;
 
